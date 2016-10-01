@@ -6,4 +6,19 @@ The tilt utilizes the on-board accelerometer on the bean to measure the tilt of 
 
 Tilt provides apps in iOS and Android that can read the iBeacon and display it, as well as store the data in the cloud.
 
-This software utilizes a Raspberry Pi, or similar device, to capture the iBeacon advertisements and store the data locally in a MySQL database. It also provides code that will display a simple local webpage that has a real-time graph of the fermentation progress.
+This software utilizes a Raspberry Pi (RPi), or similar device, to capture the iBeacon advertisements and store the data locally in a MySQL database. It also provides code that will display a simple local webpage that has a real-time graph of the fermentation progress.
+
+#Initial Setup
+
+You should have some experience setting up a Linux distribution, and know how to set permissions, read logs, and troubleshoot. If you are a complete noob at these items, it may be worth your while to get a more experienced friend to assist you.
+
+The RPi ideally should be a Model 3, as it already has Bluetooth Low Energy (BLE) hardware on the board. Other boards, such as the RPI Model 2, Odroid C2, etc., may work if a BLE dongle is added to a USB port.
+
+The RPi should be loaded with the latest version of [Raspbian](https://www.raspberrypi.org/downloads/raspbian/). Whether you choose to use the light or GUI version is a personal choice. I recommend at least an 8GB SD card. I would also setup your visudo to allow you to run programs with elevated privileges without constantly entering a password.
+
+The RPi should be setup as a [LAMP server](https://www.element14.com/community/community/raspberry-pi/raspberrypi_projects/blog/2014/02/24/raspberry-pi-as-a-lamp-server), as well as the latest versions of bluez, python-bluez, bluetooth.
+
+Once the RPi is setup and running, download abd install the code from this github to your webserver directory. It's typically /var/www/html, but YMMV.
+
+Next, place your Tilt in a container of water large enough to allow the Tilt to float freely.
+From a terminal, enter `sudo php TiltPythonFind.php`.
