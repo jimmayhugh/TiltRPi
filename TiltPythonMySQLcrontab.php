@@ -3,6 +3,10 @@
 //Reduce errors
 error_reporting(~E_WARNING);
 
+$tiltStr = "XX:XX:XX:XX:XX:XX"; // put your tilt MAC address here
+$htmlAddrStr = "/var/www/html";
+$escapShellCmdStr = "sudo python $htmlAddrStr/tiltblescan.py";
+
 // Connect to the database
 $servername = "localhost";
 $username   = "tilt";
@@ -30,11 +34,9 @@ if(mysqli_num_rows($rowVal) > 0)
 
 $bmFile = fopen("/var/log/tilt.log", "a+") or die("Unable to open file!");
 
-// $tiltStr = "XX:XX:XX:XX:XX:XX"; // put your tilt MAC address here
-$tiltStr = "88:C2:55:AC:33:AA";
-$tilt = "/$tiltStr/i"; // put your tilt MAC address here
-echo "\$tiltStr = $tiltStr, \$tilt = $tilt\n";
-$command = escapeshellcmd('sudo python ./tiltblescan.py');
+$tilt = "/$tiltStr/i";
+//echo "\$tiltStr = $tiltStr, \$tilt = $tilt\n";
+$command = escapeshellcmd($escapShellCmdStr);
 $output = shell_exec($command);
 $tiltArray = explode("\n", $output);
 

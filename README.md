@@ -22,3 +22,8 @@ Once the RPi is setup and running, download abd install the code from this githu
 
 Next, place your Tilt in a container of water large enough to allow the Tilt to float freely.
 From a terminal, enter `sudo php TiltPythonFind.php`.
+You should get a response that shows the MAC address of the Tilt, the current Specfic Gravity (SG) reading, and the Temperature.
+
+Using a text editor, copy the MAC address that was displayed, and place it into the `$tiltStr` variable in `TiltPythonMySQLcrontab.php`. You may also want to make sure that your apache website directory is correct as well by checking `$htmlAddrStr` in the same file.
+
+Finally you'll create a crontab entry to run `TiltPythonMySQLcrontab.php` regularly. I recommend once a minute. I also recommend you run it as a root or superuser crontab to help avoid permision problems.
