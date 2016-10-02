@@ -16,7 +16,9 @@ The RPi ideally should be a Model 3, as it already has Bluetooth Low Energy (BLE
 
 The RPi should be loaded with the latest version of [Raspbian](https://www.raspberrypi.org/downloads/raspbian/). Whether you choose to use the light or GUI version is a personal choice. I recommend at least an 8GB SD card. I would also setup your visudo to allow you to run programs with elevated privileges without constantly entering a password.
 
-The RPi should be setup as a [LAMP server](https://www.element14.com/community/community/raspberry-pi/raspberrypi_projects/blog/2014/02/24/raspberry-pi-as-a-lamp-server), as well as the latest versions of bluez, python-bluez, bluetooth.
+The RPi should be setup as a [LAMP server](https://www.element14.com/community/community/raspberry-pi/raspberrypi_projects/blog/2014/02/24/raspberry-pi-as-a-lamp-server), as well as the latest versions of bluez, python-bluez, bluetooth and phpmyadmin.
+
+Use phpmyadmin and tilt.sql to create the tilt database. Also make sure that privileges are set using user `tilt`.
 
 Once the RPi is setup and running, download abd install the code from this github to your webserver directory. It's typically /var/www/html, but YMMV.
 
